@@ -4,12 +4,14 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 api_urlpatterns = [
-    path('category/', include('apps.categories.api.urls')),
-    path('blog/', include('apps.blogs.api.urls'))
+    path('', include('apps.comments.api.urls')),
+    path('', include('apps.blogs.api.urls'))
 ]
+
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('post', include('apps.blogs.urls'))
+    path('', include('apps.blogs.urls')),
+    path('api/', include(api_urlpatterns)),
 ]
 urlpatterns += api_urlpatterns
 
